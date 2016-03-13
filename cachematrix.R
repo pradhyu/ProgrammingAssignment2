@@ -12,7 +12,7 @@
 makeCacheMatrix <- function(matrix = matrix()) {
   # Let's check if we have correct input
   if (!is.matrix(matrix)) {
-    stop("Please provide a matrix as parameter")
+    stop("makeCacheMatrix function needs a matrix as parameter")
   }
   matrix.inverse <- NULL
   set <- function(newvalue){ 
@@ -30,7 +30,7 @@ makeCacheMatrix <- function(matrix = matrix()) {
 }
 
 ## A function that shows the cache matrix.inverse when it's already been calculated and there's 
-## no changein in the matrix
+## no change in the matrix
 ## otherwise computes it using R function solve and then caches it for future use.
 ## Assumption : For this assignment, assume that the matrix supplied is always invertible. 
 ##              i.e. the matrix  provide to cacheSolve will be square matrix
@@ -49,9 +49,9 @@ cacheSolve <- function(x, ...) {
 }
 
 # unit-tests
-# square matrix : should coupute matrix inverse for first time cacheSolve is called 
+# square matrix : should compute inverse of matrix  for first time cacheSolve function  is called 
 ##                From second call the inverse should be presented from memory/cache
-X <- matrix(rpois(100,3), nrow = 10)
+X <- matrix(rpois(25,3), nrow = 5)
 cX <- makeCacheMatrix(X)
 cX$get()
 cacheSolve(cX)
